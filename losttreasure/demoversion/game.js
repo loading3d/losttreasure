@@ -56,14 +56,14 @@ class Game{
 		
 		const options = {
 			assets:[
-                `${this.assetsPath}sfx/gliss.${sfxExt}`,
+                		`${this.assetsPath}sfx/gliss.${sfxExt}`,
 				`${this.assetsPath}sfx/factory.${sfxExt}`,
 				`${this.assetsPath}sfx/button.${sfxExt}`,
 				`${this.assetsPath}sfx/door.${sfxExt}`,
-                `${this.assetsPath}sfx/fan.${sfxExt}`,
+                		`${this.assetsPath}sfx/fan.${sfxExt}`,
 				`${this.assetsPath}fbx/environment.fbx`,
 				`${this.assetsPath}fbx/girl-walk.fbx`,
-                `${this.assetsPath}fbx/usb.fbx`,
+                		`${this.assetsPath}fbx/usb.fbx`,
 			],
 			oncomplete: function(){
 				game.init();
