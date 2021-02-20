@@ -52,7 +52,7 @@ class Game{
 		this.anims = ["ascend-stairs", "gather-objects", "look-around", "push-button", "run"];
 		this.tweens = [];
 		
-		this.assetsPath = '../assets/';
+		this.assetsPath = 'https://cdn.jsdelivr.net/gh/loading3d/three_rpg/losttreasure/assets/';
 		
 		const options = {
 			assets:[
