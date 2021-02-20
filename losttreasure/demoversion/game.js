@@ -1,6 +1,6 @@
 class Game{
 	constructor(){
-		if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+		//if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
 		this.modes = Object.freeze({
 			NONE:   Symbol("none"),
