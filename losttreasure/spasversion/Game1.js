@@ -578,11 +578,11 @@ class Game{
 		if (!trigger) delete this.onAction;    
 		this.renderer.render( this.scene, this.camera );
 		if (this.stats!=undefined) this.stats.update();
-		}
+	}
 	
-		onError(error){
-			const msg = 
-			console.error(JSON.stringify(error));
-			console.error(error.message);
-		}
+	onError(error){
+		const msg = 
+		console.error(JSON.stringify(error));
+		console.error(error.message);
+	}
 }
