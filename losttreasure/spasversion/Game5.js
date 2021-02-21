@@ -262,57 +262,18 @@ class Game{
 		}, null, this.onError );
 	}
     
-	loadEnvironment(loader){
+	loadEnvironment(loader) {
 		const game = this;
-		
-		loader.load( `${this.assetsPath}fbx/environment.fbx`, function ( object ) {
-			game.scene.add(object);
-			game.doors = [];
-			game.fans = [];
-			
-			object.receiveShadow = true;
-			object.scale.set(0.8, 0.8, 0.8);
-			object.name = "Environment";
-			let door = { trigger:null, proxy:[], doors:[]};
-			
-			object.traverse( function ( child ) {
-				if ( child.isMesh ) {
-					if (child.name.includes('main')){
-						child.castShadow = true;
-						child.receiveShadow = true;
-					}else if (child.name.includes('mentproxy')){
-						child.material.visible = false;
-						game.environmentProxy = child;
-					}else if (child.name.includes('door-proxy')){
-						child.material.visible = false;
-						door.proxy.push(child);
-						checkDoor();
- 					}else if (child.name.includes('door')){
-						door.doors.push(child);
-						checkDoor()
-					}else if (child.name.includes('fan')){
-						game.fans.push(child);
-					}
-				}else{
-					if (child.name.includes('Door-null')){
-						door.trigger = child;
-						checkDoor();
-					}
-				}
-				
-				function checkDoor(){
-					if (door.trigger!==null && door.proxy.length==2 && door.doors.length==2){
-						game.doors.push(Object.assign({}, door));
-						door = { trigger:null, proxy:[], doors:[]};
-					}
-				}
-			} );
-			
-			game.loadUSB(loader);
-		}, null, this.onError );
+		var gltfloader = new THREE.GLTFLoader();
+		gltfloader.crossOrigin = true;
+		gltfloader.load("https://raw.githubusercontent.com/loading3d/capstone/main/rectprism.glb", function (data) {
+			var mesh = data.scene;
+    			mesh.position.set(0, 40, 0);
+    			game.scene.add(mesh);
+		});   
 	}
 	
-	createDummyEnvironment(){
+	createDummyEnvironment() {
 		const env = new THREE.Group();
 		env.name = "Environment";
 		this.scene.add(env);
