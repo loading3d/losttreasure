@@ -580,9 +580,8 @@ class Game{
 		if (this.stats!=undefined) this.stats.update();
 	}
 	
-	onError(error){
-		const msg = 
-		console.error(JSON.stringify(error));
+	onError(error) {
+		const msg = console.error(JSON.stringify(error));
 		console.error(error.message);
 	}
 }
